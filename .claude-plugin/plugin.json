@@ -9,6 +9,7 @@
   },
   "homepage": "https://hello.new",
   "repository": "https://github.com/hellodotnew/hello",
+  "license": "MIT",
   "keywords": [
     "upload",
     "files",

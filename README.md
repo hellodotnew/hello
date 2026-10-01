@@ -120,6 +120,7 @@ The plugin connects anonymously: no account, no key, no sign-in prompt.
 | `gemini-extension.json` | Gemini CLI extension |
 | `server.json` | The server described in MCP Registry format |
 | `assets/` | Icons |
+| `LICENSE` | MIT |
 
 ## Docs, privacy and support
 
@@ -127,3 +128,7 @@ The plugin connects anonymously: no account, no key, no sign-in prompt.
 - Privacy: [hello.new/privacy](https://hello.new/privacy)
 - Support: [hello.new/support](https://hello.new/support) or
   [hello@hello.new](mailto:hello@hello.new)
+
+## Licence
+
+[MIT](LICENSE).

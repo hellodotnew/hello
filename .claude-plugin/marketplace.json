@@ -1,0 +1,17 @@
+{
+  "name": "hello-new",
+  "owner": {
+    "name": "hello.new",
+    "email": "hello@hello.new",
+    "url": "https://hello.new"
+  },
+  "description": "Upload links, shared pages and webhook URLs for your agent.",
+  "plugins": [
+    {
+      "name": "hello-new",
+      "source": "./",
+      "description": "Upload links, shared pages and webhooks for your agent, in one call.",
+      "category": "productivity"
+    }
+  ]
+}

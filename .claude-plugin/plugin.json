@@ -1,0 +1,21 @@
+{
+  "name": "hello-new",
+  "version": "1.0.0",
+  "description": "Upload links, shared pages and webhooks for your agent, in one call.",
+  "author": {
+    "name": "hello.new",
+    "email": "hello@hello.new",
+    "url": "https://hello.new"
+  },
+  "homepage": "https://hello.new",
+  "repository": "https://github.com/hellodotnew/hello",
+  "keywords": [
+    "upload",
+    "files",
+    "share",
+    "pages",
+    "webhooks",
+    "links",
+    "analytics"
+  ]
+}

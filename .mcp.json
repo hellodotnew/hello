@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "hello": {
+      "type": "http",
+      "url": "https://api.hello.new/mcp"
+    }
+  }
+}

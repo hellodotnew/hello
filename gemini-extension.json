@@ -1,0 +1,13 @@
+{
+  "name": "hello-new",
+  "version": "1.0.0",
+  "description": "Upload links, shared pages and webhook URLs for your agent.",
+  "mcpServers": {
+    "hello": {
+      "httpUrl": "https://api.hello.new/mcp",
+      "headers": {
+        "X-Hello-Client": "gemini-extension"
+      }
+    }
+  }
+}

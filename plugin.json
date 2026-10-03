@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "hello-new",
-  "version": "1.0.0",
-  "description": "Upload links, shared pages and webhooks, in one call. People send your agent files, read what it made, and services call it back.",
+  "version": "1.0.1",
+  "description": "Upload links, shared pages, webhooks and websites, in one call. People send your agent files, read and visit what it made, and services call it back.",
   "author": {
     "name": "hello.new",
     "email": "hello@hello.new",
@@ -18,14 +18,15 @@
     "pages",
     "webhooks",
     "links",
-    "analytics"
+    "analytics",
+    "websites"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "hello.new",
         "shortDescription": "Upload links, pages, webhooks",
-        "longDescription": "hello.new lets ChatGPT work with people and services outside the chat.\n\n- Upload links: when you need a file from someone, ChatGPT makes a page they can drop it on, with no account on their side. ChatGPT lists what arrives, reads small text files directly, and gives you a download link for the rest.\n- Shared pages: ChatGPT publishes a report, summary or draft as a clean web page anyone with the link can read.\n- Webhooks: a URL that Stripe, GitHub, a form or a cron job can call. ChatGPT reads every request that arrives.\n- Link stats: how many people opened a link, and from which countries.\n\nLinks are anonymous and expire after 24 hours. To keep one, open its claim link and put it under a name of your own at hello.new.\n\nLimits: files up to 50 MB and 10 per upload link, pages up to 256 KB, and 100 requests kept per webhook. Anyone with a link can open it, but only the link's key can read what arrives, and ChatGPT keeps the key to itself.",
+        "longDescription": "hello.new lets ChatGPT work with people and services outside the chat.\n\n- Upload links: when you need a file from someone, ChatGPT makes a page they can drop it on, with no account on their side. ChatGPT lists what arrives, reads small text files directly, and gives you a download link for the rest.\n- Shared pages: ChatGPT publishes a report, summary or draft as a clean web page anyone with the link can read.\n- Webhooks: a URL that Stripe, GitHub, a form or a cron job can call. ChatGPT reads every request that arrives.\n- Websites: ChatGPT builds a page or a small site and publishes it at an address of its own, then changes it in place when you ask.\n- Link stats: how many people opened a link, and from which countries.\n\nLinks are anonymous and expire after 24 hours. To keep one, open its claim link and put it under a name of your own at hello.new.\n\nLimits: files up to 50 MB and 10 per upload link, pages up to 256 KB, 100 requests kept per webhook, and websites up to 10 MB. Anyone with a link can open it, but only the link's key can read what arrives, and ChatGPT keeps the key to itself.",
         "developerName": "hello.new",
         "category": "Productivity",
         "capabilities": [
@@ -39,7 +40,7 @@
         "defaultPrompt": [
           "Make an upload link so Sam can send me the signed lease",
           "Publish this summary as a page I can share with my team",
-          "Give me a webhook URL for Stripe and show me what it receives"
+          "Build a one-page website for my bakery and publish it"
         ],
         "brandColor": "#e8604c",
         "brandColorDark": "#e8604c",

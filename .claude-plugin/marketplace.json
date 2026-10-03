@@ -5,12 +5,12 @@
     "email": "hello@hello.new",
     "url": "https://hello.new"
   },
-  "description": "Upload links, shared pages and webhook URLs for your agent.",
+  "description": "Upload links, shared pages, webhook URLs and websites for your agent.",
   "plugins": [
     {
       "name": "hello-new",
       "source": "./",
-      "description": "Upload links, shared pages and webhooks for your agent, in one call.",
+      "description": "Upload links, shared pages, webhooks and websites for your agent, in one call.",
       "category": "productivity"
     }
   ]

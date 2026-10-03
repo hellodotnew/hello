@@ -1,6 +1,6 @@
 # hello.new
 
-Upload links, shared pages and webhook URLs for AI agents.
+Upload links, shared pages, webhook URLs and websites for AI agents.
 
 An agent can write, reason and call tools, but it can't receive a file from a
 person, hand over what it made, or take a callback from a service until
@@ -13,6 +13,8 @@ single call:
   the link can read.
 - **Webhook URL.** An address any service can call: Stripe, GitHub, a form, a
   cron job. The agent reads each request that arrives.
+- **Website.** A site the agent built, from one page to a React app, at an
+  address of its own. The agent can change it in place.
 
 This repository is the plugin: one skill that tells an agent when and how to
 use hello.new, and the configuration that connects a client to hello.new's
@@ -63,6 +65,8 @@ for ChatGPT, Cursor and VS Code.
 | `share_page` | Publishes Markdown as a page anyone with the link can read |
 | `create_webhook` | Makes a URL any service can call |
 | `read_webhook_requests` | Returns the requests the webhook received |
+| `publish_site` | Publishes a website at an address of its own |
+| `update_site` | Replaces a site's files; its address stays the same |
 | `get_link_stats` | Returns views, visitors and countries for a link |
 | `delete_link` | Deletes a link and everything in it |
 
@@ -78,7 +82,7 @@ that points your client at a remote MCP server.
 **Sends.** When your agent calls a tool, your client sends the tool's
 arguments to `api.hello.new` over HTTPS. That includes any content you or the
 agent supply: the note on an upload page, the title and text of a shared page,
-and the ids and keys of links made earlier. In a client without MCP, the skill
+the files of a website, and the ids and keys of links made earlier. In a client without MCP, the skill
 has the agent make the same calls to `https://api.hello.new` with `curl`.
 
 Installs through the Gemini extension or `server.json` carry a fixed

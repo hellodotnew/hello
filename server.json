@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "new.hello/mcp",
   "title": "hello.new",
-  "description": "Upload links, shared Markdown pages and webhook URLs for AI agents. No account needed.",
-  "version": "1.0.0",
+  "description": "Upload links, Markdown pages, webhook URLs and websites for AI agents. No account needed.",
+  "version": "1.0.1",
   "websiteUrl": "https://hello.new",
   "repository": {
     "url": "https://github.com/hellodotnew/hello",

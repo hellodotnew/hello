@@ -1,7 +1,7 @@
 {
   "name": "hello-new",
-  "version": "1.0.0",
-  "description": "Upload links, shared pages and webhook URLs for your agent.",
+  "version": "1.0.1",
+  "description": "Upload links, shared pages, webhook URLs and websites for your agent.",
   "mcpServers": {
     "hello": {
       "httpUrl": "https://api.hello.new/mcp",

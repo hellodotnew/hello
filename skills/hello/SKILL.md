@@ -1,13 +1,13 @@
 ---
 name: hello
-description: Get a temporary internet resource in one anonymous HTTP call from hello.new. Use when a person needs to send the agent a file (upload link), when a person needs to read something the agent produced (shared page), or when a service needs a URL to call back (webhook). No account or API key needed; anonymous resources expire in 24 hours, and an optional account key keeps them under hello.new/@username.
+description: Get a temporary internet resource in one anonymous HTTP call from hello.new. Use when a person needs to send the agent a file (upload link), when a person needs to read something the agent produced (shared page), when a service needs a URL to call back (webhook), or when people should visit a website the agent built (site). No account or API key needed; anonymous resources expire in 24 hours, and an optional account key keeps them under hello.new/@username.
 ---
 
 # hello.new: temporary internet resources
 
 One `POST` to `https://api.hello.new` gives you a URL that works for 24 hours. No sign-up, no key to obtain. Send `X-Hello-Client: <runtime>`, the name of the agent runtime you are running in, with every call.
 
-If the hello.new tools are available (`create_upload_link`, `list_files`, `share_page`, `create_webhook`, `read_webhook_requests`, `get_link_stats`, `delete_link`), use them instead of the HTTP calls below. They make the same links and need no shell.
+If the hello.new tools are available (`create_upload_link`, `list_files`, `share_page`, `create_webhook`, `read_webhook_requests`, `publish_site`, `update_site`, `get_link_stats`, `delete_link`), use them instead of the HTTP calls below. They make the same links and need no shell.
 
 ## When to use which
 
@@ -16,6 +16,7 @@ If the hello.new tools are available (`create_upload_link`, `list_files`, `share
 | a person to send you a file | `POST /upload` | `url` (a page they drop files on) |
 | a person to read text or Markdown you made | `POST /share` | `url` (a page) |
 | a service to call you back (Stripe, GitHub, a form, a cron) | `POST /webhook` | `url` (accepts any request) |
+| people to visit a website you built | `POST /site` | `url` (the site, at its own address) |
 
 Every response also has `key` (yours; never show it) and `expires_at`. Pass `expires_in` (seconds, 60 to 86400) to expire sooner. `DELETE` the resource with the key when done.
 
@@ -62,6 +63,22 @@ curl -s 'https://api.hello.new/webhook/f3gd7hxm?key=…&since=0&wait=25'
 ```
 
 `wait` holds up to 25 seconds and returns as soon as something arrives; an empty `requests` list is "nothing yet", so loop with `since=<last seq>`. Non-UTF-8 bodies come as `body_base64`. 100 requests kept, 256 KB each.
+
+## Site: people visit what you built
+
+```sh
+curl -sX POST https://api.hello.new/site -H 'X-Hello-Client: <runtime>' \
+  -H 'Content-Type: application/json' -d '{"title": "Bakery", "files": {"index.html": "<!doctype html>…", "style.css": "…"}}'
+# -> { "url": "https://k7m2x9pq.hellonew.app", "key": "…", "claim_url": "…", "expires_at": "…" }
+```
+
+`files` maps each path to its text; send a binary file as `{"base64": "…"}`. `index.html` is the home page. For a built app (React, Vite, a Next.js static export), send the build folder as one archive, with `title` in the query string:
+
+```sh
+tar -cz -C dist . | curl -sX POST 'https://api.hello.new/site?title=Bakery' -H 'X-Hello-Client: <runtime>' --data-binary @-
+```
+
+`PUT /site/k7m2x9pq?key=…` with either kind of body replaces every file at the same URL. A path with no file gets `404.html`, or `index.html` when there is none, so client-side routes work. Static files only: no server code runs. Everything in a site is public, so never build a key into it; a form can post to a webhook and you read the entries. 10 MB and 100 files a site.
 
 ## Account links
 

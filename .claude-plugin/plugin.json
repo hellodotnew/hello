@@ -1,7 +1,7 @@
 {
   "name": "hello-new",
-  "version": "1.0.0",
-  "description": "Upload links, shared pages and webhooks for your agent, in one call.",
+  "version": "1.0.1",
+  "description": "Upload links, shared pages, webhooks and websites for your agent, in one call.",
   "author": {
     "name": "hello.new",
     "email": "hello@hello.new",
@@ -17,6 +17,7 @@
     "pages",
     "webhooks",
     "links",
-    "analytics"
+    "analytics",
+    "websites"
   ]
 }
